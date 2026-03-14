@@ -170,11 +170,12 @@ if [[ -n "$remaining" ]]; then
   empty_bg=$(printf '\033[48;5;237m')  # dark grey
 
   # Build segmented battery bar using background-colored blocks (16 segments)
+  # Each segment: 1 colored space + 1 reset space (gap). Gives visible separation.
   filled=$(( (remaining_int * 16 + 99) / 100 ))
   empty=$(( 16 - filled ))
   bar=""
-  for ((s=0; s<filled; s++)); do bar="${bar}${seg_bg}  ${reset}"; done
-  for ((s=0; s<empty; s++)); do bar="${bar}${empty_bg}  ${reset}"; done
+  for ((s=0; s<filled; s++)); do bar="${bar}${seg_bg} ${reset} "; done
+  for ((s=0; s<empty; s++)); do bar="${bar}${empty_bg} ${reset} "; done
 
   output="${output} ${bar} ${pct_color}${remaining_int}%${reset}"
 fi
