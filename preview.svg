@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="740" height="120" viewBox="0 0 740 120">
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="110" viewBox="0 0 860 110">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#1e1e2e"/>
@@ -6,64 +6,82 @@
     </linearGradient>
   </defs>
 
-  <!-- Terminal window background -->
-  <rect width="740" height="120" rx="10" ry="10" fill="url(#bg)" />
+  <!-- Terminal background -->
+  <rect width="860" height="110" rx="10" ry="10" fill="url(#bg)"/>
 
   <!-- Title bar -->
-  <rect width="740" height="32" rx="10" ry="10" fill="#313244"/>
-  <rect y="20" width="740" height="12" fill="#313244"/>
+  <rect width="860" height="30" rx="10" ry="10" fill="#313244"/>
+  <rect y="18" width="860" height="12" fill="#313244"/>
 
   <!-- Traffic lights -->
-  <circle cx="22" cy="16" r="6" fill="#ff5f57"/>
-  <circle cx="42" cy="16" r="6" fill="#febc2e"/>
-  <circle cx="62" cy="16" r="6" fill="#28c840"/>
+  <circle cx="20" cy="15" r="5.5" fill="#ff5f57"/>
+  <circle cx="38" cy="15" r="5.5" fill="#febc2e"/>
+  <circle cx="56" cy="15" r="5.5" fill="#28c840"/>
+  <text x="430" y="20" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11.5" fill="#6c7086">claude-statusline</text>
 
-  <!-- Title -->
-  <text x="370" y="21" text-anchor="middle" font-family="SF Pro Text, -apple-system, sans-serif" font-size="12" fill="#6c7086">claude-statusline</text>
+  <!-- ── Row 1: full statusline ── -->
+  <text x="18"  y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" font-weight="bold" fill="#89b4fa">~/work/myproject</text>
+  <text x="153" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#a6e3a1"> main ✔</text>
+  <text x="218" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#cdd6f4"> 3m</text>
+  <text x="248" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#45475a"> |</text>
+  <text x="263" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#6c7086"> claude-sonnet-4-6 effort:auto</text>
+  <text x="497" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#cdd6f4"> $0.042</text>
+  <text x="551" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#6c7086"> ⏱5m</text>
+  <text x="592" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#6c7086"> 12k↑</text>
 
-  <!-- Statusline content — row 1: directory + git -->
-  <!-- ~/work/myproject -->
-  <text x="24" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" font-weight="bold" fill="#89b4fa">~/work/myproject</text>
-  <!-- space -->
-  <!-- main -->
-  <text x="189" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#a6e3a1">main</text>
-  <!-- ✔ -->
-  <text x="224" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#a6e3a1"> ✔</text>
-  <!-- 3m -->
-  <text x="254" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#cdd6f4"> 3m</text>
+  <!-- Battery (green, 78% = 8 filled) -->
+  <rect x="636" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
+  <rect x="647" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
+  <rect x="658" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
+  <rect x="669" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
+  <rect x="680" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
+  <rect x="691" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
+  <rect x="702" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
+  <rect x="713" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
+  <rect x="724" y="45" width="9" height="14" rx="2" fill="#313244"/>
+  <rect x="735" y="45" width="9" height="14" rx="2" fill="#313244"/>
+  <text x="745" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#a6e3a1"> 78%</text>
 
-  <!-- separator -->
-  <text x="288" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#585b70"> |</text>
+  <!-- ── Row 2: three battery states ── -->
+  <!-- label -->
+  <text x="18" y="87" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="11" fill="#45475a">context:</text>
 
-  <!-- model + effort -->
-  <text x="304" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086"> claude-sonnet-4-6 effort:auto</text>
+  <!-- green: 78% (8 filled) -->
+  <rect x="80"  y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
+  <rect x="90"  y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
+  <rect x="100" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
+  <rect x="110" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
+  <rect x="120" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
+  <rect x="130" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
+  <rect x="140" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
+  <rect x="150" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
+  <rect x="160" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="170" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <text x="180" y="87" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="11" fill="#a6e3a1"> 78%</text>
 
-  <!-- cost -->
-  <text x="532" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#cdd6f4"> $0.042</text>
+  <!-- yellow: 35% (4 filled) -->
+  <rect x="270" y="76" width="8" height="12" rx="2" fill="#f9e2af"/>
+  <rect x="280" y="76" width="8" height="12" rx="2" fill="#f9e2af"/>
+  <rect x="290" y="76" width="8" height="12" rx="2" fill="#f9e2af"/>
+  <rect x="300" y="76" width="8" height="12" rx="2" fill="#f9e2af"/>
+  <rect x="310" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="320" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="330" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="340" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="350" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="360" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <text x="370" y="87" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="11" fill="#f9e2af"> 35%</text>
 
-  <!-- session age -->
-  <text x="590" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086"> ⏱5m</text>
-
-  <!-- tokens -->
-  <text x="632" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086"> 12k↑</text>
-
-  <!-- Battery bar — second line -->
-  <!-- filled segments (green) -->
-  <text x="24" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#a6e3a1">▓▓▓▓▓▓▓▓</text>
-  <!-- empty segments (dark) -->
-  <text x="144" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#313244">░░</text>
-  <!-- percentage -->
-  <text x="178" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#a6e3a1"> 78%</text>
-
-  <!-- yellow example -->
-  <text x="280" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086">  ·  </text>
-  <text x="316" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#f9e2af">▓▓▓▓</text>
-  <text x="376" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#313244">░░░░░░</text>
-  <text x="466" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#f9e2af"> 35%</text>
-
-  <!-- red example -->
-  <text x="510" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086">  ·  </text>
-  <text x="548" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#f38ba8">▓▓</text>
-  <text x="578" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#313244">░░░░░░░░</text>
-  <text x="682" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#f38ba8"> 15%</text>
+  <!-- red: 15% (2 filled) -->
+  <rect x="460" y="76" width="8" height="12" rx="2" fill="#f38ba8"/>
+  <rect x="470" y="76" width="8" height="12" rx="2" fill="#f38ba8"/>
+  <rect x="480" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="490" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="500" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="510" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="520" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="530" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="540" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <rect x="550" y="76" width="8" height="12" rx="2" fill="#313244"/>
+  <text x="560" y="87" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="11" fill="#f38ba8"> 15%</text>
 </svg>
