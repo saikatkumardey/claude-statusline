@@ -139,7 +139,7 @@ if [[ -n "$total_duration_ms" ]] && [[ "$total_duration_ms" -gt 0 ]]; then
   else
     age_display="$(printf '%dm' $age_minutes)"
   fi
-  output="${output} ${grey}⏱${age_display}${reset}"
+  output="${output} ${grey}⏱ ${age_display}${reset}"
 fi
 
 # Total tokens used this session
