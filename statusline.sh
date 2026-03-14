@@ -153,10 +153,11 @@ if [[ $total_tokens -gt 0 ]]; then
   output="${output} ${grey}${tokens_display}${reset}"
 fi
 
-# Context battery bar (10 segments, color-coded)
+# Context battery bar (16 segments, color-coded)
 if [[ -n "$remaining" ]]; then
   remaining_int=${remaining%.*}
 
+  # Segment and percentage colors based on remaining context
   if [[ $remaining_int -le 20 ]]; then
     seg_bg=$(printf '\033[48;5;203m')  # red
     pct_color="$red"
@@ -169,8 +170,7 @@ if [[ -n "$remaining" ]]; then
   fi
   empty_bg=$(printf '\033[48;5;237m')  # dark grey
 
-  # Build segmented battery bar using background-colored blocks (16 segments)
-  # Each segment: 1 colored space + 1 reset space (gap). Gives visible separation.
+  # Each segment: 1 colored space + 1 reset space (gap between segments)
   filled=$(( (remaining_int * 16 + 99) / 100 ))
   empty=$(( 16 - filled ))
   bar=""
