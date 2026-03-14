@@ -4,9 +4,7 @@ A rich, information-dense statusline for [Claude Code](https://claude.ai/code) t
 
 ## What it shows
 
-```
-~/work/myproject main ✔ 3m | claude-sonnet-4-6 effort:auto $0.042 ⏱5m 12k↑ ▓▓▓▓▓▓▓▓░░ 78%
-```
+![claude-statusline preview](preview.svg)
 
 | Segment | Description |
 |---------|-------------|

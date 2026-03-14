@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="120" viewBox="0 0 740 120">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#181825"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Terminal window background -->
+  <rect width="740" height="120" rx="10" ry="10" fill="url(#bg)" />
+
+  <!-- Title bar -->
+  <rect width="740" height="32" rx="10" ry="10" fill="#313244"/>
+  <rect y="20" width="740" height="12" fill="#313244"/>
+
+  <!-- Traffic lights -->
+  <circle cx="22" cy="16" r="6" fill="#ff5f57"/>
+  <circle cx="42" cy="16" r="6" fill="#febc2e"/>
+  <circle cx="62" cy="16" r="6" fill="#28c840"/>
+
+  <!-- Title -->
+  <text x="370" y="21" text-anchor="middle" font-family="SF Pro Text, -apple-system, sans-serif" font-size="12" fill="#6c7086">claude-statusline</text>
+
+  <!-- Statusline content — row 1: directory + git -->
+  <!-- ~/work/myproject -->
+  <text x="24" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" font-weight="bold" fill="#89b4fa">~/work/myproject</text>
+  <!-- space -->
+  <!-- main -->
+  <text x="189" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#a6e3a1">main</text>
+  <!-- ✔ -->
+  <text x="224" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#a6e3a1"> ✔</text>
+  <!-- 3m -->
+  <text x="254" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#cdd6f4"> 3m</text>
+
+  <!-- separator -->
+  <text x="288" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#585b70"> |</text>
+
+  <!-- model + effort -->
+  <text x="304" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086"> claude-sonnet-4-6 effort:auto</text>
+
+  <!-- cost -->
+  <text x="532" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#cdd6f4"> $0.042</text>
+
+  <!-- session age -->
+  <text x="590" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086"> ⏱5m</text>
+
+  <!-- tokens -->
+  <text x="632" y="66" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086"> 12k↑</text>
+
+  <!-- Battery bar — second line -->
+  <!-- filled segments (green) -->
+  <text x="24" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#a6e3a1">▓▓▓▓▓▓▓▓</text>
+  <!-- empty segments (dark) -->
+  <text x="144" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#313244">░░</text>
+  <!-- percentage -->
+  <text x="178" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#a6e3a1"> 78%</text>
+
+  <!-- yellow example -->
+  <text x="280" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086">  ·  </text>
+  <text x="316" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#f9e2af">▓▓▓▓</text>
+  <text x="376" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#313244">░░░░░░</text>
+  <text x="466" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#f9e2af"> 35%</text>
+
+  <!-- red example -->
+  <text x="510" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#6c7086">  ·  </text>
+  <text x="548" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#f38ba8">▓▓</text>
+  <text x="578" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="15" fill="#313244">░░░░░░░░</text>
+  <text x="682" y="96" font-family="JetBrains Mono, Menlo, Monaco, monospace" font-size="13.5" fill="#f38ba8"> 15%</text>
+</svg>
