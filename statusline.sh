@@ -110,12 +110,14 @@ if git --no-optional-locks rev-parse --git-dir > /dev/null 2>&1; then
   fi
 fi
 
-# Model + effort
+# Line 2: Claude Code info
+output="${output}
+"
 if [[ -n "$model" ]]; then
   if [[ -n "$effort" ]]; then
-    output="${output} ${grey}|${reset} ${grey}${model} effort:${effort}${reset}"
+    output="${output}${grey}${model} effort:${effort}${reset}"
   else
-    output="${output} ${grey}|${reset} ${grey}${model}${reset}"
+    output="${output}${grey}${model}${reset}"
   fi
 fi
 
