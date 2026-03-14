@@ -4,13 +4,22 @@ A rich, information-dense statusline for [Claude Code](https://claude.ai/code) t
 
 ## What it shows
 
-![claude-statusline preview](preview.svg)
+![claude-statusline preview](preview.png)
+
+The statusline spans **two lines**:
+
+**Line 1 — git context**
 
 | Segment | Description |
 |---------|-------------|
 | `~/work/myproject` | Last 3 path components (blue) |
 | `main ✔` / `main ✗` | Git branch + clean/dirty indicator |
 | `3m` | Time since last git commit |
+
+**Line 2 — Claude session info**
+
+| Segment | Description |
+|---------|-------------|
 | `claude-sonnet-4-6` | Active Claude model |
 | `effort:auto` | Thinking effort level (`auto` / `low` / `medium` / `high`) |
 | `$0.042` | Session cost so far |
