@@ -158,16 +158,16 @@ if [[ -n "$remaining" ]]; then
   remaining_int=${remaining%.*}
 
   if [[ $remaining_int -le 20 ]]; then
-    seg_bg="\033[48;5;203m"  # red
+    seg_bg=$(printf '\033[48;5;203m')  # red
     pct_color="$red"
   elif [[ $remaining_int -le 50 ]]; then
-    seg_bg="\033[48;5;220m"  # yellow
+    seg_bg=$(printf '\033[48;5;220m')  # yellow
     pct_color="$yellow"
   else
-    seg_bg="\033[48;5;83m"   # bright green
+    seg_bg=$(printf '\033[48;5;83m')   # bright green
     pct_color="$green"
   fi
-  empty_bg="\033[48;5;237m"  # dark grey
+  empty_bg=$(printf '\033[48;5;237m')  # dark grey
 
   # Build segmented battery bar using background-colored blocks (16 segments)
   filled=$(( (remaining_int * 16 + 99) / 100 ))
