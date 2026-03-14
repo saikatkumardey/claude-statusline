@@ -1,87 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="860" height="110" viewBox="0 0 860 110">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1e1e2e"/>
-      <stop offset="100%" stop-color="#181825"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="36" viewBox="0 0 860 36">
+  <!-- Terminal line background -->
+  <rect width="860" height="36" fill="#1a1b1e"/>
 
-  <!-- Terminal background -->
-  <rect width="860" height="110" rx="10" ry="10" fill="url(#bg)"/>
+  <!-- projects/ai/smolclaw (bold blue) -->
+  <text x="14" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" font-weight="bold" fill="#569cd6">projects/ai/smolclaw</text>
 
-  <!-- Title bar -->
-  <rect width="860" height="30" rx="10" ry="10" fill="#313244"/>
-  <rect y="18" width="860" height="12" fill="#313244"/>
+  <!-- main (green) -->
+  <text x="178" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#4ec9b0"> main</text>
 
-  <!-- Traffic lights -->
-  <circle cx="20" cy="15" r="5.5" fill="#ff5f57"/>
-  <circle cx="38" cy="15" r="5.5" fill="#febc2e"/>
-  <circle cx="56" cy="15" r="5.5" fill="#28c840"/>
-  <text x="430" y="20" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="11.5" fill="#6c7086">claude-statusline</text>
+  <!-- ✔ (green) -->
+  <text x="216" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#4ec9b0"> ✔</text>
 
-  <!-- ── Row 1: full statusline ── -->
-  <text x="18"  y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" font-weight="bold" fill="#89b4fa">~/work/myproject</text>
-  <text x="153" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#a6e3a1"> main ✔</text>
-  <text x="218" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#cdd6f4"> 3m</text>
-  <text x="248" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#45475a"> |</text>
-  <text x="263" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#6c7086"> claude-sonnet-4-6 effort:auto</text>
-  <text x="497" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#cdd6f4"> $0.042</text>
-  <text x="551" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#6c7086"> ⏱5m</text>
-  <text x="592" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#6c7086"> 12k↑</text>
+  <!-- 2d1h (white) -->
+  <text x="234" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#cccccc"> 2d1h</text>
 
-  <!-- Battery (green, 78% = 8 filled) -->
-  <rect x="636" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
-  <rect x="647" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
-  <rect x="658" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
-  <rect x="669" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
-  <rect x="680" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
-  <rect x="691" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
-  <rect x="702" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
-  <rect x="713" y="45" width="9" height="14" rx="2" fill="#a6e3a1"/>
-  <rect x="724" y="45" width="9" height="14" rx="2" fill="#313244"/>
-  <rect x="735" y="45" width="9" height="14" rx="2" fill="#313244"/>
-  <text x="745" y="57" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#a6e3a1"> 78%</text>
+  <!-- | (dim grey) -->
+  <text x="270" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#555555"> |</text>
 
-  <!-- ── Row 2: three battery states ── -->
-  <!-- label -->
-  <text x="18" y="87" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="11" fill="#45475a">context:</text>
+  <!-- Sonnet 4.6 effort:auto (grey) -->
+  <text x="284" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#6b7280"> Sonnet 4.6 effort:auto</text>
 
-  <!-- green: 78% (8 filled) -->
-  <rect x="80"  y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
-  <rect x="90"  y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
-  <rect x="100" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
-  <rect x="110" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
-  <rect x="120" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
-  <rect x="130" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
-  <rect x="140" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
-  <rect x="150" y="76" width="8" height="12" rx="2" fill="#a6e3a1"/>
-  <rect x="160" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="170" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <text x="180" y="87" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="11" fill="#a6e3a1"> 78%</text>
+  <!-- $0.99 (white) -->
+  <text x="464" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#cccccc"> $0.99</text>
 
-  <!-- yellow: 35% (4 filled) -->
-  <rect x="270" y="76" width="8" height="12" rx="2" fill="#f9e2af"/>
-  <rect x="280" y="76" width="8" height="12" rx="2" fill="#f9e2af"/>
-  <rect x="290" y="76" width="8" height="12" rx="2" fill="#f9e2af"/>
-  <rect x="300" y="76" width="8" height="12" rx="2" fill="#f9e2af"/>
-  <rect x="310" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="320" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="330" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="340" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="350" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="360" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <text x="370" y="87" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="11" fill="#f9e2af"> 35%</text>
+  <!-- ⊙14m (grey) -->
+  <text x="510" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#6b7280"> ⊙14m</text>
 
-  <!-- red: 15% (2 filled) -->
-  <rect x="460" y="76" width="8" height="12" rx="2" fill="#f38ba8"/>
-  <rect x="470" y="76" width="8" height="12" rx="2" fill="#f38ba8"/>
-  <rect x="480" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="490" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="500" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="510" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="520" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="530" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="540" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <rect x="550" y="76" width="8" height="12" rx="2" fill="#313244"/>
-  <text x="560" y="87" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="11" fill="#f38ba8"> 15%</text>
+  <!-- 26k↑ (grey) -->
+  <text x="552" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#6b7280"> 26k↑</text>
+
+  <!-- Battery bar: 16 thin-slice segments, 75% = 12 filled -->
+  <!-- filled (green) -->
+  <rect x="595" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="603" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="611" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="619" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="627" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="635" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="643" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="651" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="659" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="667" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="675" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <rect x="683" y="11" width="6" height="14" rx="1" fill="#4ade80"/>
+  <!-- empty (dark) -->
+  <rect x="691" y="11" width="6" height="14" rx="1" fill="#2a2d2e"/>
+  <rect x="699" y="11" width="6" height="14" rx="1" fill="#2a2d2e"/>
+  <rect x="707" y="11" width="6" height="14" rx="1" fill="#2a2d2e"/>
+  <rect x="715" y="11" width="6" height="14" rx="1" fill="#2a2d2e"/>
+
+  <!-- 75% (green) -->
+  <text x="724" y="23" font-family="'JetBrains Mono','Fira Code',Menlo,monospace" font-size="13" fill="#4ade80">  75%</text>
 </svg>
