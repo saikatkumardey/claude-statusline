@@ -1,32 +1,32 @@
 # claude-statusline
 
-A rich, information-dense statusline for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that shows everything you need at a glance — git state, model, session cost, context usage, and more.
+A rich, adaptive statusline for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that shows git state, model, session cost, context usage, and more — and adjusts automatically to your terminal width.
 
 ![claude-statusline preview](preview.png)
 
 ## What it shows
 
-The statusline spans **two lines**:
+The layout adapts to your terminal width:
 
-**Line 1 — Git context**
+### Wide (≥ 80 cols) — full two-line display
 
-| Segment | Description |
-|---------|-------------|
-| `myproject` | Current directory name |
-| `main ✔` / `main ✗` | Branch + clean/dirty indicator |
-| `3m` | Time since last commit |
+| Line | Segments |
+|------|----------|
+| **Git** | `myproject` `main ✔` `3m` |
+| **Session** | `sonnet-4-6 auto` `$0.04` `⏱5m` `12k↑` `2x` `████░░ 78%` |
 
-**Line 2 — Claude session**
+### Medium (50–79 cols) — compact two lines
 
-| Segment | Description |
-|---------|-------------|
-| `claude-sonnet-4-6` | Active model |
-| `effort:auto` | Thinking effort (`auto` / `low` / `medium` / `high`) |
-| `$0.042` | Session cost |
-| `⏱5m` | Session age |
-| `12k↑` | Total tokens used |
-| `2x` / `1x` | Usage multiplier (green = peak, grey = off-peak) |
-| `▓▓▓▓▓▓▓▓░░ 78%` | Context window remaining (green → yellow → red) |
+| Line | Segments |
+|------|----------|
+| **Git** | `myproject` `main ✔` `3m` |
+| **Session** | `sonnet-4-6` `$0.04` `⏱5m` `2x` `78%` |
+
+### Narrow (< 50 cols) — single line, essentials only
+
+```
+myproject main ✔ $0.04 2x 78%
+```
 
 ## Install
 
@@ -105,7 +105,7 @@ Based on `thinking.budget_tokens`:
 
 ## How it works
 
-Claude Code calls the statusline command on every refresh, passing a JSON blob via stdin. The script parses it with `jq` and builds an ANSI-colored string. See the [statusline docs](https://docs.anthropic.com/en/docs/claude-code/settings#status-line) for the full JSON schema.
+Claude Code calls the statusline command on every refresh, passing a JSON blob via stdin. The script reads the terminal width via `tput cols`, parses the JSON with `jq`, and builds an ANSI-colored string sized for the available space. See the [statusline docs](https://docs.anthropic.com/en/docs/claude-code/settings#status-line) for the full JSON schema.
 
 ## License
 
