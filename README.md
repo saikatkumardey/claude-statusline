@@ -25,6 +25,7 @@ The statusline spans **two lines**:
 | `$0.042` | Session cost so far |
 | `⏱5m` | Session age |
 | `12k↑` | Total tokens used this session |
+| `1x` / `2x` | Usage multiplier — green 1x during off-peak, red 2x during peak |
 | `▓▓▓▓▓▓▓▓░░ 78%` | Context window remaining (green → yellow → red) |
 
 ## Install
@@ -86,6 +87,10 @@ The script is intentionally a single, readable bash file. Open `~/.claude/status
 - <5 000 → `low`
 - 5 000–9 999 → `medium`
 - ≥10 000 → `high`
+
+**Usage multiplier:**
+- `1x` (green) — weekdays 5–11am PT (off-peak)
+- `2x` (red) — weekdays outside 5–11am PT, and all day on weekends
 
 ## How it works
 

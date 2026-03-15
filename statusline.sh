@@ -155,6 +155,15 @@ if [[ $total_tokens -gt 0 ]]; then
   output="${output} ${grey}${tokens_display}${reset}"
 fi
 
+# Usage multiplier (2x on weekdays outside 5-11am PT / 12-6pm GMT, 2x all weekend)
+pt_hour=$(TZ=America/Los_Angeles date +%H | sed 's/^0//')
+pt_dow=$(TZ=America/Los_Angeles date +%u)  # 1=Mon, 7=Sun
+if [[ $pt_dow -ge 6 ]] || [[ $pt_hour -lt 5 ]] || [[ $pt_hour -ge 11 ]]; then
+  output="${output} ${red}2x${reset}"
+else
+  output="${output} ${green}1x${reset}"
+fi
+
 # Context battery bar (16 segments, color-coded)
 if [[ -n "$remaining" ]]; then
   remaining_int=${remaining%.*}
