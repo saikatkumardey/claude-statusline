@@ -13,14 +13,14 @@ The layout adapts to your terminal width:
 | Line | Segments |
 |------|----------|
 | **Git** | `myproject` `main ✔` `3m` |
-| **Session** | `sonnet-4-6 auto` `$0.04` `⏱5m` `12k↑` `2x` `████░░ 78%` |
+| **Session** | `sonnet` `auto` `$0.04` `⏱5m` `12k↑` `2x` `████░░ 78%` |
 
 ### Medium (50–79 cols) — compact two lines
 
 | Line | Segments |
 |------|----------|
 | **Git** | `myproject` `main ✔` `3m` |
-| **Session** | `sonnet-4-6` `$0.04` `⏱5m` `2x` `78%` |
+| **Session** | `sonnet` `$0.04` `⏱5m` `2x` `78%` |
 
 ### Narrow (< 50 cols) — single line, essentials only
 

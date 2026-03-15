@@ -54,10 +54,20 @@ red=$(printf '\033[31m')
 white=$(printf '\033[37m')
 grey=$(printf '\033[90m')
 yellow=$(printf '\033[33m')
+orange=$(printf '\033[38;5;208m')
 reset=$(printf '\033[0m')
 
-# Shorten model name: claude-sonnet-4-6 → sonnet-4-6
-short_model="${model#claude-}"
+# Shorten model name to just sonnet/opus/haiku and pick color
+short_model=""
+model_color="$grey"
+if [[ -n "$model" ]]; then
+  case "$model" in
+    *sonnet*) short_model="sonnet"; model_color="$orange" ;;
+    *opus*)   short_model="opus";   model_color="$red" ;;
+    *haiku*)  short_model="haiku";  model_color="$grey" ;;
+    *)        short_model="${model#claude-}"; model_color="$grey" ;;
+  esac
+fi
 
 # Session cost
 cost_display=""
@@ -189,7 +199,7 @@ elif [[ $cols -lt 80 ]]; then
   [[ -n "$commit_age" ]] && output="${output} ${white}${commit_age}${reset}"
   output="${output}
 "
-  [[ -n "$short_model" ]] && output="${output}${grey}${short_model}${reset}"
+  [[ -n "$short_model" ]] && output="${output}${model_color}${short_model}${reset}"
   [[ -n "$cost_display" ]] && output="${output} ${white}${cost_display}${reset}"
   [[ -n "$age_display" ]] && output="${output} ${grey}⏱${age_display}${reset}"
   output="${output} ${mult_color}${multiplier}${reset}"
@@ -204,9 +214,9 @@ else
 "
   if [[ -n "$short_model" ]]; then
     if [[ -n "$effort" ]]; then
-      output="${output}${grey}${short_model} ${effort}${reset}"
+      output="${output}${model_color}${short_model}${reset} ${grey}${effort}${reset}"
     else
-      output="${output}${grey}${short_model}${reset}"
+      output="${output}${model_color}${short_model}${reset}"
     fi
   fi
   [[ -n "$cost_display" ]] && output="${output} ${white}${cost_display}${reset}"
