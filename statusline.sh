@@ -38,25 +38,13 @@ effort=$(echo "$input" | jq -r '
   end
 ' 2>/dev/null || echo "")
 
-# Shorten path to last 3 components (like %3~ in zsh)
-IFS='/' read -ra path_parts <<< "$cwd"
-path_len=${#path_parts[@]}
-if [ $path_len -le 3 ]; then
-  short_path="$cwd"
-else
-  start_idx=$((path_len - 3))
-  short_path="${path_parts[$start_idx]}"
-  for ((i=start_idx+1; i<path_len; i++)); do
-    short_path="$short_path/${path_parts[$i]}"
-  done
-fi
-short_path="${short_path/#$HOME/\~}"
+# Shorten path to current directory name only
+short_path=$(basename "$cwd")
 
 # Color codes
 blue=$(printf '\033[1;34m')
 green=$(printf '\033[32m')
 red=$(printf '\033[31m')
-cyan=$(printf '\033[36m')
 white=$(printf '\033[37m')
 grey=$(printf '\033[90m')
 yellow=$(printf '\033[33m')
@@ -64,15 +52,8 @@ reset=$(printf '\033[0m')
 
 output=""
 
-# User@host (SSH or switched user only)
-if [[ -n "$SSH_CONNECTION" ]]; then
-  output="${cyan}$(whoami)@$(hostname -s)${reset}:"
-elif [[ "$LOGNAME" != "$USER" ]]; then
-  output="${cyan}$(whoami)${reset}:"
-fi
-
 # Directory
-output="${output}${blue}${short_path}${reset} "
+output="${blue}${short_path}${reset} "
 
 # Git: branch + clean/dirty + time since last commit
 if git --no-optional-locks rev-parse --git-dir > /dev/null 2>&1; then
@@ -159,9 +140,9 @@ fi
 pt_hour=$(TZ=America/Los_Angeles date +%H | sed 's/^0//')
 pt_dow=$(TZ=America/Los_Angeles date +%u)  # 1=Mon, 7=Sun
 if [[ $pt_dow -ge 6 ]] || [[ $pt_hour -lt 5 ]] || [[ $pt_hour -ge 11 ]]; then
-  output="${output} ${red}2x${reset}"
+  output="${output} ${green}2x${reset}"
 else
-  output="${output} ${green}1x${reset}"
+  output="${output} ${grey}1x${reset}"
 fi
 
 # Context battery bar (16 segments, color-coded)
