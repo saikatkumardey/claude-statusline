@@ -1,31 +1,31 @@
 # claude-statusline
 
-A rich, information-dense statusline for [Claude Code](https://claude.ai/code) that shows everything you need at a glance — git state, model, session cost, context battery, and more.
-
-## What it shows
+A rich, information-dense statusline for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that shows everything you need at a glance — git state, model, session cost, context usage, and more.
 
 ![claude-statusline preview](preview.png)
 
+## What it shows
+
 The statusline spans **two lines**:
 
-**Line 1 — git context**
+**Line 1 — Git context**
 
 | Segment | Description |
 |---------|-------------|
-| `~/work/myproject` | Last 3 path components (blue) |
-| `main ✔` / `main ✗` | Git branch + clean/dirty indicator |
-| `3m` | Time since last git commit |
+| `myproject` | Current directory name |
+| `main ✔` / `main ✗` | Branch + clean/dirty indicator |
+| `3m` | Time since last commit |
 
-**Line 2 — Claude session info**
+**Line 2 — Claude session**
 
 | Segment | Description |
 |---------|-------------|
-| `claude-sonnet-4-6` | Active Claude model |
-| `effort:auto` | Thinking effort level (`auto` / `low` / `medium` / `high`) |
-| `$0.042` | Session cost so far |
+| `claude-sonnet-4-6` | Active model |
+| `effort:auto` | Thinking effort (`auto` / `low` / `medium` / `high`) |
+| `$0.042` | Session cost |
 | `⏱5m` | Session age |
-| `12k↑` | Total tokens used this session |
-| `1x` / `2x` | Usage multiplier — green 2x during peak, grey 1x during off-peak |
+| `12k↑` | Total tokens used |
+| `2x` / `1x` | Usage multiplier (green = peak, grey = off-peak) |
 | `▓▓▓▓▓▓▓▓░░ 78%` | Context window remaining (green → yellow → red) |
 
 ## Install
@@ -58,43 +58,54 @@ This downloads the script, makes it executable, and patches your `~/.claude/sett
 
 3. Restart Claude Code.
 
-### Tell Claude to set it up
+### Let Claude do it
 
-You can also just tell Claude Code directly:
+Just tell Claude Code:
 
 > Use the statusline script from https://github.com/saikatkumardey/claude-statusline
 
-Claude Code will run the install script for you.
+It will run the install script for you.
 
 ## Requirements
 
 - `bash` (pre-installed on macOS/Linux)
-- `jq` — `brew install jq` or `apt install jq`
-- `bc` — `brew install bc` or `apt install bc`
-- `git` (for git segments)
+- [`jq`](https://jqlang.github.io/jq/) — `brew install jq` / `apt install jq`
+- `bc` — `brew install bc` / `apt install bc`
+- `git`
 
 ## Customisation
 
-The script is intentionally a single, readable bash file. Open `~/.claude/statusline.sh` and edit any section — colors, segments, thresholds — directly. Changes take effect on the next status refresh (no restart needed).
+The script is a single, readable bash file. Edit `~/.claude/statusline.sh` directly — colors, segments, thresholds. Changes take effect on the next status refresh (no restart needed).
 
-**Color thresholds for context battery:**
-- >50% remaining → green
-- 21–50% → yellow
-- ≤20% → red
+### Context battery colors
 
-**Effort mapping** (based on `thinking.budget_tokens`):
-- 0 / absent → `auto`
-- <5 000 → `low`
-- 5 000–9 999 → `medium`
-- ≥10 000 → `high`
+| Remaining | Color |
+|-----------|-------|
+| > 50% | Green |
+| 21–50% | Yellow |
+| ≤ 20% | Red |
 
-**Usage multiplier:**
-- `2x` (green) — weekdays outside 5–11am PT, and all day on weekends (peak)
-- `1x` (grey) — weekdays 5–11am PT (off-peak)
+### Effort mapping
+
+Based on `thinking.budget_tokens`:
+
+| Budget | Level |
+|--------|-------|
+| 0 / absent | `auto` |
+| < 5,000 | `low` |
+| 5,000–9,999 | `medium` |
+| ≥ 10,000 | `high` |
+
+### Usage multiplier
+
+| Display | When | Color |
+|---------|------|-------|
+| `2x` | Weekdays outside 5–11 AM PT, weekends | Green |
+| `1x` | Weekdays 5–11 AM PT (off-peak) | Grey |
 
 ## How it works
 
-Claude Code calls the statusline command on every status refresh and passes a JSON blob via stdin. The script parses the JSON with `jq` and builds an ANSI-colored string. See [Claude Code statusline docs](https://docs.anthropic.com/en/docs/claude-code/settings#status-line) for the full JSON schema.
+Claude Code calls the statusline command on every refresh, passing a JSON blob via stdin. The script parses it with `jq` and builds an ANSI-colored string. See the [statusline docs](https://docs.anthropic.com/en/docs/claude-code/settings#status-line) for the full JSON schema.
 
 ## License
 
