@@ -61,11 +61,12 @@ reset=$(printf '\033[0m')
 short_model=""
 model_color="$grey"
 if [[ -n "$model" ]]; then
-  case "$model" in
+  model_lower=$(echo "$model" | tr '[:upper:]' '[:lower:]')
+  case "$model_lower" in
     *sonnet*) short_model="sonnet"; model_color="$orange" ;;
     *opus*)   short_model="opus";   model_color="$red" ;;
     *haiku*)  short_model="haiku";  model_color="$grey" ;;
-    *)        short_model="${model#claude-}"; model_color="$grey" ;;
+    *)        short_model="$model"; model_color="$grey" ;;
   esac
 fi
 
